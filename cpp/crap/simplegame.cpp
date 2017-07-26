@@ -60,7 +60,7 @@ int bet(int num, int tk){
 
 int explanation(){
   cout << "[HOST] Welcome to this shit game. You have to bet in at least 1 of 30 numbers by typing 'bet <number> <amount>'. You are given 50 tokens to start. Type 'play' to roll the numbers and 'help' to show this once again. And, please, don't fuck this up by inputting something not a number when asked for a number and so on, I'm a shit-tier 'programmer'." << endl;
-  cout << "[HOST] There are 10 knives, one of which is a Death Knife and another one which is a Life Knife. If you bet on a number in which a knife landed, you get 2x the bet. If you bet on a number in which a Death Knife landed, you lost 30x the bet. If you bet on a number in which a Life Knife landed, you get 30x the bet. Good luck!" << endl; 
+  cout << "[HOST] There are 10 knives, one of which is a Death Knife and another one which is a Life Knife. If you bet on a number in which a knife landed, you get 2x the bet. If you bet on a number in which a Death Knife landed, you lose 30x the bet. If you bet on a number in which a Life Knife landed, you get 30x the bet. Good luck!" << endl; 
   return 0;
 }
 
