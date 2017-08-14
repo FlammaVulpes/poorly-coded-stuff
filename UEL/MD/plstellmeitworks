@@ -1,0 +1,88 @@
+#include <cmath>
+#include <string>
+#include <iomanip>
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+
+using namespace std;
+
+double coeficiente[3];
+double coords[3][4];
+// Eu deveria fazer um programa pra tirar os dados de um arquivo via fin e soltar via fout para um arquivo "resultados.txt", não é mesmo?
+// E também poderia rearranjar isso para fazer para uma matriz n x n mais pra frente?
+// Mas acho que 3x3, pelo menos por enquanto, é suficiente.
+
+int pegarValores(){
+  cout << fixed << setprecision(8);
+  cout << "---- Valores da matriz ----" << endl;
+  int i = 0;
+  int j = 0;
+  for(int k = 0; k < 3; k++){
+    cout << "-- Linha " << i+1 << " --" << endl;
+    for(int l = 0; l < 4; l++){
+      if(l == 3){
+        cout << "Insira o resultado dessa linha: ";
+      } else {
+        cout << "Insira o valor de m[" << i+1 << ", " << j+1 << "]: ";
+      }
+      cin >> coords[i][j];
+      //cout << coords[i][j] << endl;
+      j++;
+    }
+  j = 0; i++;
+  }
+  return 0;
+}
+
+int escalonarMatriz(){
+  cout << "---- Escalonando a matriz, please wait ----" << endl;
+  int i = 0;
+  int j = 0;
+  // Variáveis para a L1 aplicada à L2 e L1 aplicada à L3
+  int a = coords[1][0]/coords[0][0];
+  int b = coords[2][0]/coords[0][0];
+  // Aplicar isso na matriz [L1 -> L2] e [L1 -> L3];
+  for(int k = 0; k < 4; k++){
+    coords[1][k] -= coords[0][k] * a;
+    coords[2][k] -= coords[0][k] * b;
+  }
+  //Variável para a L2 aplicada à L3;
+  int c = coords[2][1]/coords[1][1];
+  for(int k = 1; k < 4; k++){
+    coords[2][k] -= coords[1][k] * c;
+  }
+  cout << "---- Escalonamento concluído ----" << endl;
+  return 0;
+}
+
+// Apenas teste para ver se a matriz estava escalonando corretamente. Turns out que deu tudo certo de primeira ^-^ /yay
+int escreverMatriz(){
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 4; j++){
+      cout << coords[i][j] << endl;
+    }
+  }
+}
+
+int escreverResultados(){
+  coeficiente[2] = coords[2][3]/coords[2][2];
+  coeficiente[1] = (coords[1][3] - coords[1][2]*coeficiente[2])/coords[1][1];
+  coeficiente[0] = (coords[0][3] - coords[0][2]*coeficiente[2] - coords[0][1]*coeficiente[1])/coords[0][0];
+  cout << "---- Coeficientes ---- " << endl;
+  int n = 0;
+  do{
+    cout << "a" << n+1 << " = " << coeficiente[n] << endl;
+    n++;
+  }while(n<3);
+  return 0;
+}
+
+int main(){
+  pegarValores();
+  escalonarMatriz();
+  //escreverMatriz();
+  escreverResultados();
+  return 0;
+}
+
