@@ -1,6 +1,6 @@
 # random-crappy-stuff
 <center>
-Absolutely random and poorly codeed projects I've done for college or fun.
+Absolutely random and poorly coded projects I've done for college or fun.
 
 They work, though.
 
