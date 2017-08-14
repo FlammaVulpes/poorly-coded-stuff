@@ -36,23 +36,23 @@ int pegarValores(){
 }
 
 int escalonarMatriz(){
-  cout << "---- Escalonando a matriz, please wait ----" << endl;
+  //cout << "---- Escalonando a matriz, please wait ----" << endl;
   int i = 0;
   int j = 0;
   // Variáveis para a L1 aplicada à L2 e L1 aplicada à L3
-  int a = coords[1][0]/coords[0][0];
-  int b = coords[2][0]/coords[0][0];
+  double a = coords[1][0]/coords[0][0];
+  double b = coords[2][0]/coords[0][0];
   // Aplicar isso na matriz [L1 -> L2] e [L1 -> L3];
   for(int k = 0; k < 4; k++){
     coords[1][k] -= coords[0][k] * a;
     coords[2][k] -= coords[0][k] * b;
   }
   //Variável para a L2 aplicada à L3;
-  int c = coords[2][1]/coords[1][1];
+  double c = coords[2][1]/coords[1][1];
   for(int k = 1; k < 4; k++){
     coords[2][k] -= coords[1][k] * c;
   }
-  cout << "---- Escalonamento concluído ----" << endl;
+  //cout << "---- Escalonamento concluído ----" << endl;
   return 0;
 }
 
@@ -85,4 +85,3 @@ int main(){
   escreverResultados();
   return 0;
 }
-
