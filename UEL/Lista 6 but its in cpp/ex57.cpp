@@ -2,6 +2,8 @@
 #include <iomanip>
 #include <cmath>
 
+#include "headers.hpp";
+
 using namespace std;
 
 struct studentsInfo{
