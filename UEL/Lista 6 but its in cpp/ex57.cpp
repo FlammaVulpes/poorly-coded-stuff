@@ -31,7 +31,8 @@ void calcMarks(){
     for(int i = 0; i < 10; i++){
         if(infos[i].month <= 4 && infos[i].day <= 20){
             infos[i].marks += 10;
-        } else if (infos[i].month == 5 && infos[i].day <= 2){
+            if(infos[i].marks > 100) infos[i].marks = 100;
+        } else if (infos[i].month == 5 && infos[i].day <= 2 || infos[i].month == 4 && infos[i].day > 20){
             infos[i].marks += 0; // no change
         } else if (infos[i].month == 5 && infos[i].day <= 30){
             infos[i].marks /= 2;
