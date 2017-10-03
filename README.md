@@ -1,7 +1,8 @@
 # poorly-coded-stuff
 <center>
 300% poorly coded stuff, Jesus Christ.
-![My corner, stay away from him.](http://pa1.narvii.com/6436/a1b9c260ccdb31cb47bfb71589c57706c97ebde0_hq.gif)
+
+![My corner, stay away from him](http://pa1.narvii.com/6436/a1b9c260ccdb31cb47bfb71589c57706c97ebde0_hq.gif)
 
 <sub><sup>He's my corner, stay away from him...</sup></sub>
 
