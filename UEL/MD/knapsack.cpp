@@ -46,9 +46,8 @@ void setData(){
         info[i].fileSize /= (float) 1000;
         info[i].value /= (float) 1000;
 
-        // Display file information
-        cout << info[i].fileSize << " kB " << "[" << info[i].value << "]";
-        if((i+1) % 3 == 0) cout << endl; else cout << "\t";
+        /*cout << info[i].fileSize << " kB " << "[" << info[i].value << "]"; // Display file information
+        if((i+1) % 3 == 0) cout << endl; else cout << "\t";*/
     }
     cout << endl;
 }
@@ -81,9 +80,8 @@ void doWorth(){
             swap(worth[i].fileSize, worth[max].fileSize);
             swap(worth[i].value, worth[max].value);
         }
-        // Display the array sorted to maximum density
-        cout << worth[i].fileSize << " kB " << "[V/U = " << worth[i].valPerUnit << "]";
-        if((i+1) % 3 == 0) cout << endl; else cout << "\t";
+        /*cout << worth[i].fileSize << " kB " << "[V/U = " << worth[i].valPerUnit << "]"; // Display the array sorted to maximum density
+        if((i+1) % 3 == 0) cout << endl; else cout << "\t";*/
     }
 }
 
@@ -104,7 +102,8 @@ void addToDisk(){
             capacity -= worth[i].fileSize;
             worth[i].wasUsed = true;
             diskVal += worth[i].value;
-            cout << "Added song #" << i + 1 << " (" << worth[i].fileSize << " kB) [" << worth[i].valPerUnit <<"] to the disk!" << "\tRemaining space: " << capacity << " kB" << endl;
+            // Display what is being put inside the CD
+            cout << "Added file #" << i + 1 << " (" << worth[i].fileSize << " kB) [" << worth[i].valPerUnit <<"] to the disk!" << "\tRemaining space: " << capacity << " kB" << endl;
         }
         i++;    if(capacity < minSize || i >= amountOfFiles) break;
     }
