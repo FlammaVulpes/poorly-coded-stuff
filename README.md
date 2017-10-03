@@ -1,14 +1,11 @@
-# random-crappy-stuff
+# poorly-coded-stuff
 <center>
-Absolutely random and poorly coded projects I've done for college or fun.
+300% poorly coded stuff, Jesus Christ.
+![My corner, stay away from him.](http://pa1.narvii.com/6436/a1b9c260ccdb31cb47bfb71589c57706c97ebde0_hq.gif)
 
-They work, though.
+<sub><sup>He's my corner, stay away from him...</sup></sub>
 
-![When my code works](https://em.wattpad.com/4e5c9cea76af05194564035f8461841958119ec5/68747470733a2f2f36382e6d656469612e74756d626c722e636f6d2f36393937626632623932316362323266303565313663393132373435653532382f74756d626c725f6f6c737972687153595731756a357039306f315f3530302e676966?s=fit&h=360&w=360&q=80)
+![even though I know you DO want him :^)](https://68.media.tumblr.com/60be4183fd5536b03a1337cdb1b3ff01/tumblr_oqyjunaa6D1svgxl5o1_500.gif)
 
-<sub><sup>Me, when my code works</sup></sub>
-
-![When my code won't work](https://static.tumblr.com/d0c22534a55acc6b76ae0dbb3e7421cf/aopfm3b/C4wonfhek/tumblr_static_tumblr_static__640.gif)
-
-<sub><sup>Me, when my code doesn't work properly. The table is like my keyboard/computer, by the way.</sup></sub>
+<sub><sup>even though I know you DO want him :^)</sup></sub>
 </center>
