@@ -5,7 +5,8 @@
 #include "headers.hpp"
 using namespace std;
 
-int main(){
-    vet3();
-    return 0;
+void vet9(){
+    for(int i = 5000; i <= 7000; i++){
+        if(checkPrime(i)) cout << i << "\t";
+    }
 }
