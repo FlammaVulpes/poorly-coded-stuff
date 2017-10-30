@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 #include "header.hpp"
 
@@ -8,11 +9,19 @@ char texto[1000];
 char palavra[20];
 
 void str5(){
-    cout << "Insira o texto: "; cin.getline(texto, 1000);
-    cout << "Insira a palavra a ser buscada: "; cin >> palavra;
-    cout << countSubstring(texto, palavra) << endl;
-    fetchAndRemove(texto, palavra);
-    cout << texto;
+    int escolha;
+    while(1){
+        cout << "Menu: " << endl;
+        cout << "\t1) Contar numero de ocorrencias\n\t2) Retirar palavras da frase\n\t3) Sair" << endl;
+        cout << "Insira a sua escolha: ";
+        cin >> escolha;
+        cin.ignore();
+        if(escolha == 3){ cout << "Programa terminado!" << endl; break; }
+        cout << "Insira o texto: "; cin.getline(texto, 1000);
+        cout << "Insira a palavra a ser buscada: "; cin >> palavra;
+        if(escolha == 1) cout << countSubstring(texto, palavra) << " ocorrencias de \"" << palavra << "\" no texto." << endl;
+        if(escolha == 2){ fetchAndRemove(texto, palavra); cout << texto << endl; }
+    }
 }
 
 int countSubstring(char texto[1000], char palavra[20]){
@@ -30,24 +39,21 @@ int countSubstring(char texto[1000], char palavra[20]){
 }
 
 void fetchAndRemove(char texto[1000], char palavra[20]){
-    int i = 0, j;
+    int i = 0, j, r;
+    int psize, tsize;
     while(texto[i] != '\0'){
         j = 0;
+        if(texto[i] == palavra[j]) r = i;
         while(texto[i] == palavra[j]){
-            int r = i;
             i++; j++;
             if(palavra[j] == '\0'){
-                // Eu estou trancado aqui nessa merda
-                // Preciso dar um jeito de fazer isso funcionar
-                // O que isso faz?
-                // Supostamente, dá um shift left no seu char array sobrescrevendo toda a palavra
-                // que você quer dentro do texto que você colocou.
-                int tsize = sizeof(texto)/sizeof(texto[0]);
-                int psize = sizeof(palavra)/sizeof(palavra[0]);
+                // Aparentemente, eu consegui resolver essa merda.
+                tsize = strlen(texto);
+                psize = strlen(palavra);
                 for(int a = 0; a < tsize; a++){
-                    texto[r + a] = texto[r + a + psize];
+                    texto[r + a - 1] = texto[r + a + psize];
                 }
-                texto[r + psize + 1] = '\0';
+                texto[tsize - psize] = '\0';
             }
         }
         i++;
