@@ -105,3 +105,27 @@ int main(){
     cout << "Melhor lucro obtido: " << mochila(capacidade, arr, n) << endl;
     return 0;
 }
+
+// Como o código funciona?
+/*
+    - Em um primeiro momento, a mochila é preenchida de maneira gulosa (os itens que possuem a maior densidade, isto é, valor
+    por unidade de massa, são inseridos na mochila até que o seu peso seja completamente preenchido, mesmo que, para isso, seja
+    necessário repartir o item. Esse processo acontece dentro da função limite(), que retorna o lucro máximo com os itens disponíveis.
+    - Após o limite superior inicial L ser calculado, possíveis soluções são geradas e colocadas dentro de uma fila F. Enquanto F não
+    estiver vazia, o algoritmo cria sucessivas ramificações de uma árvore binária (branch), calculando, para cada combinação, o limite superior
+    local L'. Se L' < L, então isso garante que qualquer combinação em um nível inferior à esse nódulo jamais terá um L' tal que L' > L,
+    isto é, realiza a poda ("bound"). Assim que o algoritmo encontra um L' tal que L' < L, a melhor combinação de itens anterior à atual
+    é automaticamente descartada. Assim que F estiver vazia, ou seja, não houver mais combinações a serem testadas, o algoritmo irá retornar
+    o maior valor possível para os itens que podem ser colocados na mochila.
+*/
+// Dificuldades encontradas durante a criação do código
+/*
+    - A maior dificuldade fora, sem sombra de dúvidas, contornar o problema de ter que usar ponteiros para a criação da estrutura da
+    árvore binária. Fora desenvolvido um método no qual o uso de ponteiros não se faz necessário, utilizando números inteiros para
+    a navegação na estrutura da árvore. Para a realização das comparações, duas variáveis, u e v, são utilizadas para representar 
+    as camadas.
+    - Outra dificuldade encontrada foi a organização do código e a falta de conhecimento para uma implementação correta e eficiente de
+    queues (filas). À princípio, uma tentativa fora feita fazendo uso de vetores, arrays unidimensionais dinâmicos, mas o código falhava
+    em alguns 'edge cases', situações em que os valores são tão próximos um dos outros que podem apontar uma falha no algoritmo. Após um 
+    pouco de pesquisa, aprendeu-se sobre e como implementar as queues tal qual mostrado nesse código.
+*/
