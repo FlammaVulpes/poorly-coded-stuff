@@ -3,6 +3,7 @@
 #include <time.h>
 
 int valorPorPeso[400], qtd, k, m, M;
+
 struct obj {
   int valor;
   int peso;
@@ -41,7 +42,7 @@ void formigas(int iterate){
       }
      c++;
     }
-  // atualizaçao do ferormonio - +0,1 / -0,01
+  // atualizaçao do ferormonio - +0,1 / -0,1
   k=0;
   for(i=0;i<10;k++){
     if(melhor[m].select[i] == objeto[k].valor){
@@ -87,3 +88,21 @@ void main(){
 
   formigas(iterate);
 }
+
+// Como o código funciona?
+/*
+  - O usuário entra com os valores da capacidade M da mochila, com a quantidade Q de itens, os respectivos pesos e valores dos objetos
+  a serem avaliados pelo algoritmo e, por fim, a quantidade de iterações que o código deve realizar a fim de determinar a configuração
+  ideal dos objetos a serem colocados dentro da mochila.
+  - Inicialmente, todos os itens a serem avaliados recebem o valor fixo de 1 para a quantidade de feromônio. Uma quantidade padrão de
+  10 formigas é utilizado e cada uma das formigas pega um dos itens I de forma aleatória. Cada formiga, então, coloca um item I dentro
+  da mochila até que uma das seguintes condições aconteça: o espaço M da mochila seja menor que o peso P. Assim que todas as formigas
+  realizam esse mesmo processo, para cada formiga, é realizada uma iteração para identificar qual foi o item que mais adicionou valor.
+  Assim que esse item for encontrado, o valor de F será incrementado em 0.1. Então, todos os itens, com exceção daqueles cujos valores
+  de F foram aumentados em 0.1, sofrerão uma redução de 0.1 em F. Isso garante que a formiga, após várias iterações, seja sempre capaz
+  de escolher os melhores itens para colocar na mochila.
+*/
+// Dificuldades encontradas
+/*
+  - (aqui você escreve, porque eu não lembro os rolos que deram)
+*/
