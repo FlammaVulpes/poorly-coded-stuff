@@ -43,7 +43,7 @@ void consultar(){
             break;
         }
         int nSize = sizeof(nome)/sizeof(nome[0]);
-        if(strncmp(agenda[i].nome, nome, nSize) == 0){
+        if(strncmp(agenda[i].nome, nome, nSize) == 0 && agenda[i].is == 1){
             cout << "Contato encontrado!" << endl;
             cout << "\tNome: " << agenda[i].nome << endl;
             cout << "\tEndereco: " << agenda[i].endr << endl;
@@ -66,7 +66,7 @@ void remover(){
             break;
         }
         int nSize = sizeof(nome)/sizeof(nome[0]);
-        if(strncmp(agenda[i].nome, nome, nSize) == 0){
+        if(strncmp(agenda[i].nome, nome, nSize) == 0 && agenda[i].is == 1){
             cout << "\tContato encontrado! Removendo-o..." << endl;
             agenda[i].is = 0;
             break;
@@ -86,7 +86,7 @@ void atualizar(){
             break;
         }
         int nSize = sizeof(nome)/sizeof(nome[0]);
-        if(strncmp(agenda[i].nome, nome, nSize) == 0){
+        if(strncmp(agenda[i].nome, nome, nSize) == 0 && agenda[i].is == 1){
             cout << "\tContato encontrado! Atualizando os dados..." << endl;
             cout << "\tInsira o endereco atual do contato: "; cin.getline(agenda[i].endr, 50);
             cout << "\tInsira o telefone atual do contato: "; cin.getline(agenda[i].tel, 16);
@@ -97,15 +97,31 @@ void atualizar(){
 }
 
 // Falta fazer essa merda aqui
-/*void ordenar(){
-    int i = 0, auxi;
+void ordenar(){
     char auxNome[40], auxEndr[50], auxTel[16];
+    int aux;
     for(int a = 0; a < 10; a++){
         for(int b = a; b < 10; b++){
+            if(strcmp(agenda[a].nome, agenda[b].nome) > 0){
+                strcpy(auxNome, agenda[a].nome);
+                strcpy(auxEndr, agenda[a].endr);
+                strcpy(auxTel, agenda[a].tel);
+                aux = agenda[a].is;
 
+                strcpy(agenda[a].nome, agenda[b].nome);
+                strcpy(agenda[a].endr, agenda[b].endr);
+                strcpy(agenda[a].tel, agenda[b].tel);
+                agenda[a].is = agenda[b].is;
+
+                strcpy(agenda[b].nome, auxNome);
+                strcpy(agenda[b].endr, auxEndr);
+                strcpy(agenda[b].tel, auxTel);
+                agenda[b].is = aux;
+            }
         }
     }
-}*/
+    cout << "\tElementos ordenados!" << endl;
+}
 
 void listar(){
     int i = 0;
@@ -154,9 +170,9 @@ void menu(){
         case 4:
             atualizar();
             break;
-        /*case 5:
+        case 5:
             ordenar();
-            break;*/
+            break;
         case 6:
             listar();
             break;
@@ -171,6 +187,9 @@ void menu(){
 int main(){
     // Inicializar a variável "is":
     for(int i = 0; i < 10; i++){
+        strcpy(agenda[i].nome, "nome");
+        strcpy(agenda[i].endr, "endereco");
+        strcpy(agenda[i].tel, "telefone");
         agenda[i].is = 0;
     }
     menu();
